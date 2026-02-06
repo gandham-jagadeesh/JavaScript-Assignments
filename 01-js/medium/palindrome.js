@@ -7,7 +7,28 @@
 */
 
 function isPalindrome(str) {
-    return true;
+  str = str.toLowerCase();
+ let tokens = str.split(" ");
+ str="";
+ for( let token of tokens){
+  let cleanWord = "";
+  for(let char of token){
+	 if(char == '?' || char == '!' || char == ',' || char == '.' ||  char == '"') {	 
+	 continue;
+	  }
+	  cleanWord+=char;
+  }
+  str+=cleanWord;
+ }
+  let start = 0;
+  let  end = str.length -1;
+ while(start <= end ){
+   if(str[start] != str[end]){
+    return false;
+  }
+  start++;
+  end--;
+ }
+  return true;
 }
-
 module.exports = isPalindrome;
